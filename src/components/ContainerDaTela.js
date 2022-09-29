@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import ContainerDoLogo from "./ContainerDoLogo";
-import Perguntas from "./Perguntas";
+import Flashcards from "./Flashcards";
 
 export default function ContainerDaTela() {
     return (
         <ScreenContainer>
             <ContainerDoLogo />
-            <Perguntas />
+            <Flashcards />
         </ScreenContainer>
     )
 }

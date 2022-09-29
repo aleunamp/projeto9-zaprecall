@@ -6,8 +6,8 @@
 
 import GlobalStyle from "./createGlobalStyle";
 
-import ContainerDaTela from "./ContainerDaTela.js";
-import ContainerDosConcluidos from "./ContainerDosConcluidos";
+import ContainerDaTela from "./components/ContainerDaTela.js";
+import ContainerDosConcluidos from "./components/ContainerDosConcluidos";
 
 export default function App() {
     return (

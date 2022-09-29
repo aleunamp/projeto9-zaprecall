@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import setaPlay from "./assets/img/seta_play.png";
-import setaVirar from "./assets/img/seta_virar.png";
-import deck from "./deck"
+import setaPlay from "../assets/img/seta_play.png";
+import setaVirar from "../assets/img/seta_virar.png";
 
-export default function Perguntas() {
-    console.log(deck);
+export default function Flashcard() {
     return (<div>
         <PerguntaFechada>
             <p>Pergunta 1</p>
