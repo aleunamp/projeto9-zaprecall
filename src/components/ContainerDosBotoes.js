@@ -1,41 +1,33 @@
 import styled from "styled-components";
+import React from "react";
 
 import iconeCerto from "../assets/img/icone_certo.png";
 import iconeErrado from "../assets/img/icone_erro.png";
 import iconeQuase from "../assets/img/icone_quase.png";
 
 export default function ContainerDosBotoes(props){
-    const {setCard, index, setContadorRespondidas, contadorRespondidas} = props;
-    console.log(contadorRespondidas)
+    const {setCard, setContadorRespondidas, contadorRespondidas, setInfoDaResposta} = props;
 
     function selecionarBotao(cor){
-        let novoCardFechado;
+        const novoCardFechado = {cor: cor};
+
         if(cor === "#FF3030"){
-            novoCardFechado = (
-                <PerguntaFechada cor = "#FF3030">
-                    <p>Pergunta {index + 1}</p>
-                    <img src={iconeErrado} alt={iconeErrado}></img>
-                </PerguntaFechada>);
+            novoCardFechado.icone = iconeErrado;
         }
         
         if(cor === "#FF922E"){
-            novoCardFechado = (
-                <PerguntaFechada cor = "#FF922E">
-                    <p>Pergunta {index + 1}</p>
-                    <img src={iconeQuase} alt={iconeQuase}></img>
-                </PerguntaFechada>);
+            novoCardFechado.icone = iconeQuase;
         } 
         
         if(cor === "#2FBE34"){
-            novoCardFechado = (
-                <PerguntaFechada cor = "#2FBE34">
-                    <p>Pergunta {index + 1}</p>
-                    <img src={iconeCerto} alt={iconeCerto}></img>
-                </PerguntaFechada>);
+            novoCardFechado.icone = iconeCerto;
         }
-        setCard(novoCardFechado);
+
+        setInfoDaResposta(novoCardFechado);
         setContadorRespondidas(contadorRespondidas + 1);
+        setCard("respondido");
     }
+
 
     return(
         <ContainerBotoes>
@@ -69,27 +61,4 @@ const Botao = styled.button`
         border-radius: 5px;
         border: 1px solid ${props => props.cor};
         padding:5px;
-`;
-
-const PerguntaFechada = styled.div`
-    width: 300px;
-    height: 35px;
-    background-color: #FFFFFF;
-    margin: 12px;
-    padding: 15px;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    p {
-        font-family: 'Recursive';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        text-decoration: line-through;
-        color: ${props => props.cor};
-    }
 `;

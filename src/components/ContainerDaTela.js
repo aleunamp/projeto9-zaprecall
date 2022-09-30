@@ -8,7 +8,7 @@ import ContainerDoLogo from "./ContainerDoLogo";
 import Flashcards from "./Flashcards";
 import ContainerDosConcluidos from "./ContainerDosConcluidos";
 
-export default function ContainerDaTela() {
+export default function ContainerDaTela(props) {
     const [contadorRespondidas, setContadorRespondidas] = React.useState(0);
     return (
         <>

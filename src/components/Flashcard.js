@@ -5,40 +5,48 @@ import React from "react";
 import setaPlay from "../assets/img/seta_play.png";
 import setaVirar from "../assets/img/seta_virar.png";
 
+
 import ContainerDosBotoes from "./ContainerDosBotoes";
 
 export default function Flashcard(props) {
-    const {index, deck, setContadorRespondidas, contadorRespondidas} = props;
+    const { index, deck, setContadorRespondidas, contadorRespondidas } = props;
+    const [card, setCard] = React.useState("fechado");
+    const [infoDaResposta, setInfoDaResposta] = React.useState({});
 
-    const cardFechado = (
-        <PerguntaFechada>
-            <p>Pergunta {index + 1}</p>
-            <img onClick={() => setCard(cardPergunta)} src={setaPlay} alt={setaPlay}></img>
-        </PerguntaFechada>);
 
-    const [card, setCard] = React.useState(cardFechado);
-
-    const cardPergunta = (
-        <PerguntaAberta>
-            {deck.pergunta}
-            <img onClick={() => setCard(cardResposta)} src={setaVirar} alt={setaVirar}></img>
-        </PerguntaAberta>);
-
-    const cardResposta =
-        (<PerguntaAberta>
-            {deck.resposta}
-            <ContainerDosBotoes 
-            setCard={setCard} 
-            index={index} 
-            setContadorRespondidas={setContadorRespondidas}
-            contadorRespondidas={contadorRespondidas} />
-        </PerguntaAberta>);
-
-    return (
-        <>
-            {card}
-        </>
-    )
+    if (card === "fechado") {
+        return (
+            <PerguntaFechada>
+                <p>Pergunta {index + 1}</p>
+                <img onClick={() => setCard("aberto")} src={setaPlay} alt={setaPlay}></img>
+            </PerguntaFechada>
+        )
+    } else if (card === "aberto") {
+        return (
+            <PerguntaAberta>
+                {deck.pergunta}
+                <img onClick={() => setCard("de resposta")} src={setaVirar} alt={setaVirar}></img>
+            </PerguntaAberta>
+        )
+    } else if (card === "de resposta") {
+        return (
+            <PerguntaAberta>
+                {deck.resposta}
+                <ContainerDosBotoes
+                    setCard={setCard}
+                    setInfoDaResposta={setInfoDaResposta}
+                    setContadorRespondidas={setContadorRespondidas}
+                    contadorRespondidas={contadorRespondidas} />
+            </PerguntaAberta>
+        )
+    } else if (card === "respondido") {
+        return (
+            <PerguntaRespondida cor = {infoDaResposta.cor}>
+                <p>Pergunta {index + 1}</p>
+                <img src={infoDaResposta.icone} alt={infoDaResposta.icone}></img>
+            </PerguntaRespondida>
+        )
+    }
 }
 
 const PerguntaFechada = styled.div`
@@ -86,5 +94,28 @@ const PerguntaAberta = styled.div`
         position: absolute;
         bottom: 10px;
         right: 10px;
+    }
+`;
+
+const PerguntaRespondida = styled.div`
+    width: 300px;
+    height: 35px;
+    background-color: #FFFFFF;
+    margin: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        font-family: 'Recursive';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-decoration: line-through;
+        color: ${props => props.cor};
     }
 `;

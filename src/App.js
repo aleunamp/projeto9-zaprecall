@@ -1,12 +1,16 @@
 import GlobalStyle from "./createGlobalStyle";
 
+import React from "react";
+
 import ContainerDaTela from "./components/ContainerDaTela.js";
 
 export default function App() {
+    
     return (
         <div>
             <GlobalStyle />
-            <ContainerDaTela />
+            <ContainerDaTela 
+            />
         </div>
 
     )
