@@ -1,19 +1,36 @@
 import styled from "styled-components";
+
+import React from "react";
+
 import setaPlay from "../assets/img/seta_play.png";
 import setaVirar from "../assets/img/seta_virar.png";
 
-export default function Flashcard() {
-    return (<div>
-        <PerguntaFechada>
-            <p>Pergunta 1</p>
-            <img src={setaPlay} alt={setaPlay}></img>
-        </PerguntaFechada>
+export default function Flashcard(props) {
+    const { index, deck } = props;
 
+    const cardFechado = (
+        <PerguntaFechada>
+            <p>Pergunta {index + 1}</p>
+            <img onClick={() => setCard(cardPergunta)} src={setaPlay} alt={setaPlay}></img>
+        </PerguntaFechada>);
+
+    const cardPergunta = (
         <PerguntaAberta>
-            oi
+            {deck.pergunta}
+            <img onClick={() => setCard(cardResposta)} src={setaVirar} alt={setaVirar}></img>
+        </PerguntaAberta>);
+
+    const cardResposta =
+        (<PerguntaAberta>
+            {deck.resposta}
             <img src={setaVirar} alt={setaVirar}></img>
-        </PerguntaAberta>
-    </div>
+        </PerguntaAberta>);
+
+    const [card, setCard] = React.useState(cardFechado);
+    return (
+        <>
+            {card}
+        </>
     )
 }
 

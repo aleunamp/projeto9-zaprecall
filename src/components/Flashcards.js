@@ -2,9 +2,9 @@ import deck from "./deck"
 import Flashcard from "./Flashcard";
 
 export default function Flashcards(){
-    console.log(deck);
+
     return (<div>
-        <Flashcard />
+        {deck.map((deck, index) => <Flashcard key={index} index={index} deck={deck}/>)}
     </div>
     )
 }

@@ -1,22 +1,12 @@
-//import iconeCerto from "./assets/img/icone_certo.png";
-//import iconeErrado from "./assets/img/icone_erro.png";
-//import iconeQuase from "./assets/img/icone_quase.png";
-//import party from "./assets/img/party.png";
-//import sad from "./assets/img/sad.png";
-
 import GlobalStyle from "./createGlobalStyle";
 
 import ContainerDaTela from "./components/ContainerDaTela.js";
-import ContainerDosConcluidos from "./components/ContainerDosConcluidos";
 
 export default function App() {
     return (
         <div>
             <GlobalStyle />
-
             <ContainerDaTela />
-
-            <ContainerDosConcluidos />
         </div>
 
     )

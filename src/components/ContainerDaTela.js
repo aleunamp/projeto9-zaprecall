@@ -1,13 +1,19 @@
 import styled from "styled-components";
+
 import ContainerDoLogo from "./ContainerDoLogo";
 import Flashcards from "./Flashcards";
+import ContainerDosConcluidos from "./ContainerDosConcluidos";
 
 export default function ContainerDaTela() {
     return (
-        <ScreenContainer>
-            <ContainerDoLogo />
-            <Flashcards />
-        </ScreenContainer>
+        <>
+            <ScreenContainer>
+                <ContainerDoLogo />
+                <Flashcards />
+            </ScreenContainer>
+
+            <ContainerDosConcluidos />
+        </>
     )
 }
 

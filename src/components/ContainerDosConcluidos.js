@@ -1,14 +1,26 @@
+//import iconeCerto from "./assets/img/icone_certo.png";
+//import iconeErrado from "./assets/img/icone_erro.png";
+//import iconeQuase from "./assets/img/icone_quase.png";
+//import party from "./assets/img/party.png";
+//import sad from "./assets/img/sad.png";
+
 import styled from "styled-components";
 
+import deck from "./deck"
+
 export default function ContainerDosConcluidos() {
+    const cores = ["#FF3030", "#FF922E","#2FBE34"];
+    const [vermelho, amarelo, verde] = cores;
+
+    const qntdDePerguntas = deck.length;
     return (
         <FooterConcluidos>
             <ContainerBotoes>
-                <Botao cor="#FF3030">Não lembrei</Botao>
-                <Botao cor="#FF922E">Quase não lembrei</Botao>
-                <Botao cor="#2FBE34">Zap!</Botao>
+                <Botao cor={vermelho}>Não lembrei</Botao>
+                <Botao cor={amarelo}>Quase não lembrei</Botao>
+                <Botao cor={verde}>Zap!</Botao>
             </ContainerBotoes>
-            0/4 CONCLUÍDOS
+            0/{qntdDePerguntas} CONCLUÍDOS
         </FooterConcluidos>
     )
 }
@@ -51,6 +63,6 @@ const Botao = styled.button`
         color: #FFFFFF;
         background: ${props => props.cor};
         border-radius: 5px;
-        border: 1px solid blue;
+        border: 1px solid ${props => props.cor};
         padding:5px;
 `;
