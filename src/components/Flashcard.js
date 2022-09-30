@@ -5,14 +5,18 @@ import React from "react";
 import setaPlay from "../assets/img/seta_play.png";
 import setaVirar from "../assets/img/seta_virar.png";
 
+import ContainerDosBotoes from "./ContainerDosBotoes";
+
 export default function Flashcard(props) {
-    const { index, deck } = props;
+    const {index, deck, setContadorRespondidas, contadorRespondidas} = props;
 
     const cardFechado = (
         <PerguntaFechada>
             <p>Pergunta {index + 1}</p>
             <img onClick={() => setCard(cardPergunta)} src={setaPlay} alt={setaPlay}></img>
         </PerguntaFechada>);
+
+    const [card, setCard] = React.useState(cardFechado);
 
     const cardPergunta = (
         <PerguntaAberta>
@@ -23,10 +27,13 @@ export default function Flashcard(props) {
     const cardResposta =
         (<PerguntaAberta>
             {deck.resposta}
-            <img src={setaVirar} alt={setaVirar}></img>
+            <ContainerDosBotoes 
+            setCard={setCard} 
+            index={index} 
+            setContadorRespondidas={setContadorRespondidas}
+            contadorRespondidas={contadorRespondidas} />
         </PerguntaAberta>);
 
-    const [card, setCard] = React.useState(cardFechado);
     return (
         <>
             {card}

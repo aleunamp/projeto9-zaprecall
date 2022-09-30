@@ -1,18 +1,26 @@
 import styled from "styled-components";
 
+import React from "react";
+
+import deck from "./deck";
+
 import ContainerDoLogo from "./ContainerDoLogo";
 import Flashcards from "./Flashcards";
 import ContainerDosConcluidos from "./ContainerDosConcluidos";
 
 export default function ContainerDaTela() {
+    const [contadorRespondidas, setContadorRespondidas] = React.useState(0);
     return (
         <>
             <ScreenContainer>
                 <ContainerDoLogo />
-                <Flashcards />
+                <Flashcards deck={deck}
+                    setContadorRespondidas={setContadorRespondidas}
+                    contadorRespondidas={contadorRespondidas} />
             </ScreenContainer>
 
-            <ContainerDosConcluidos />
+            <ContainerDosConcluidos deck={deck}
+                contadorRespondidas={contadorRespondidas} />
         </>
     )
 }
