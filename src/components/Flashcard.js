@@ -5,14 +5,12 @@ import React from "react";
 import setaPlay from "../assets/img/seta_play.png";
 import setaVirar from "../assets/img/seta_virar.png";
 
-
 import ContainerDosBotoes from "./ContainerDosBotoes";
 
 export default function Flashcard(props) {
     const { index, deck, setContadorRespondidas, contadorRespondidas } = props;
     const [card, setCard] = React.useState("fechado");
     const [infoDaResposta, setInfoDaResposta] = React.useState({});
-
 
     if (card === "fechado") {
         return (
@@ -36,12 +34,13 @@ export default function Flashcard(props) {
                     setCard={setCard}
                     setInfoDaResposta={setInfoDaResposta}
                     setContadorRespondidas={setContadorRespondidas}
-                    contadorRespondidas={contadorRespondidas} />
+                    contadorRespondidas={contadorRespondidas}
+                />
             </PerguntaAberta>
         )
     } else if (card === "respondido") {
         return (
-            <PerguntaRespondida cor = {infoDaResposta.cor}>
+            <PerguntaRespondida cor={infoDaResposta.cor}>
                 <p>Pergunta {index + 1}</p>
                 <img src={infoDaResposta.icone} alt={infoDaResposta.icone}></img>
             </PerguntaRespondida>
@@ -69,6 +68,10 @@ const PerguntaFechada = styled.div`
         line-height: 19px;
         color: #333333;
     }
+
+    img{
+        cursor: pointer;
+    }
 `;
 
 const PerguntaAberta = styled.div`
@@ -94,6 +97,7 @@ const PerguntaAberta = styled.div`
         position: absolute;
         bottom: 10px;
         right: 10px;
+        cursor: pointer;
     }
 `;
 
@@ -117,5 +121,6 @@ const PerguntaRespondida = styled.div`
         line-height: 19px;
         text-decoration: line-through;
         color: ${props => props.cor};
+        cursor: pointer;
     }
 `;

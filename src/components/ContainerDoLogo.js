@@ -1,10 +1,11 @@
 import styled from "styled-components";
+
 import logo from "../assets/img/logo.png";
 
-export default function ContainerDoLogo() {
+export default function ContainerDoLogo({ tela }) {
     return (
-        <LogoContainer>
-            <img src={logo} alt={logo}></img>
+        <LogoContainer tela={tela}>
+            <img tela={tela} src={logo} alt={logo}></img>
             <h1>ZapRecall</h1>
         </LogoContainer>
     )
@@ -12,11 +13,13 @@ export default function ContainerDoLogo() {
 
 const LogoContainer = styled.div`
     display: flex;
+    flex-direction: ${props => props.tela === "telaInicial" ? "column" : "row"};
     align-items: center;
     margin: 40px 0 20px 0;
+    gap: ${props => props.tela === "telaInicial" ? "20px" : ""};
 
     img {
-        width: 52px;
+        width: ${props => props.tela === "telaInicial" ? "136px" : "52px"};
     }
 
     h1 {

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export default function ContainerDosConcluidos(props) {
     const { deck, contadorRespondidas } = props
     const qntdDePerguntas = deck.length;
+
     return (
         <FooterConcluidos>
             {contadorRespondidas}/{qntdDePerguntas} CONCLUÍDOS

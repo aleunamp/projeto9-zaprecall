@@ -1,25 +1,24 @@
 import styled from "styled-components";
-import React from "react";
 
 import iconeCerto from "../assets/img/icone_certo.png";
 import iconeErrado from "../assets/img/icone_erro.png";
 import iconeQuase from "../assets/img/icone_quase.png";
 
-export default function ContainerDosBotoes(props){
-    const {setCard, setContadorRespondidas, contadorRespondidas, setInfoDaResposta} = props;
+export default function ContainerDosBotoes(props) {
+    const { setCard, setContadorRespondidas, contadorRespondidas, setInfoDaResposta } = props;
 
-    function selecionarBotao(cor){
-        const novoCardFechado = {cor: cor};
+    function selecionarBotao(cor) {
+        const novoCardFechado = { cor: cor };
 
-        if(cor === "#FF3030"){
+        if (cor === "#FF3030") {
             novoCardFechado.icone = iconeErrado;
         }
-        
-        if(cor === "#FF922E"){
+
+        if (cor === "#FF922E") {
             novoCardFechado.icone = iconeQuase;
-        } 
-        
-        if(cor === "#2FBE34"){
+        }
+
+        if (cor === "#2FBE34") {
             novoCardFechado.icone = iconeCerto;
         }
 
@@ -28,13 +27,12 @@ export default function ContainerDosBotoes(props){
         setCard("respondido");
     }
 
-
-    return(
+    return (
         <ContainerBotoes>
-        <Botao onClick={() => selecionarBotao("#FF3030")} cor={"#FF3030"}>Não lembrei</Botao>
-        <Botao onClick={() => selecionarBotao("#FF922E")} cor={"#FF922E"}>Quase não lembrei</Botao>
-        <Botao onClick={() => selecionarBotao("#2FBE34")} cor={"#2FBE34"}>Zap!</Botao>
-    </ContainerBotoes>
+            <Botao onClick={() => selecionarBotao("#FF3030")} cor={"#FF3030"}>Não lembrei</Botao>
+            <Botao onClick={() => selecionarBotao("#FF922E")} cor={"#FF922E"}>Quase não lembrei</Botao>
+            <Botao onClick={() => selecionarBotao("#2FBE34")} cor={"#2FBE34"}>Zap!</Botao>
+        </ContainerBotoes>
     )
 }
 
@@ -61,4 +59,5 @@ const Botao = styled.button`
         border-radius: 5px;
         border: 1px solid ${props => props.cor};
         padding:5px;
+        cursor: pointer;
 `;

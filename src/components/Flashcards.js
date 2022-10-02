@@ -9,7 +9,8 @@ export default function Flashcards(props) {
             index={index}
             deck={deck}
             setContadorRespondidas={setContadorRespondidas}
-            contadorRespondidas={contadorRespondidas} />)}
+            contadorRespondidas={contadorRespondidas}
+        />)}
     </div>
     )
 }
