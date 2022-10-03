@@ -5,7 +5,7 @@ export default function ContainerDosConcluidos(props) {
     const qntdDePerguntas = deck.length;
 
     return (
-        <FooterConcluidos>
+        <FooterConcluidos data-identifier="flashcard-counter">
             {contadorRespondidas}/{qntdDePerguntas} CONCLUÍDOS
         </FooterConcluidos>
     )

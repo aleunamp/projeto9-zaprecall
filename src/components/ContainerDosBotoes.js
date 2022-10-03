@@ -29,9 +29,9 @@ export default function ContainerDosBotoes(props) {
 
     return (
         <ContainerBotoes>
-            <Botao onClick={() => selecionarBotao("#FF3030")} cor={"#FF3030"}>Não lembrei</Botao>
-            <Botao onClick={() => selecionarBotao("#FF922E")} cor={"#FF922E"}>Quase não lembrei</Botao>
-            <Botao onClick={() => selecionarBotao("#2FBE34")} cor={"#2FBE34"}>Zap!</Botao>
+            <Botao data-identifier="forgot-btn" onClick={() => selecionarBotao("#FF3030")} cor={"#FF3030"}>Não lembrei</Botao>
+            <Botao data-identifier="almost-forgot-btn" onClick={() => selecionarBotao("#FF922E")} cor={"#FF922E"}>Quase não lembrei</Botao>
+            <Botao data-identifier="zap-btn" onClick={() => selecionarBotao("#2FBE34")} cor={"#2FBE34"}>Zap!</Botao>
         </ContainerBotoes>
     )
 }

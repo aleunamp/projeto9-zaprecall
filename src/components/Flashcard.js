@@ -14,21 +14,21 @@ export default function Flashcard(props) {
 
     if (card === "fechado") {
         return (
-            <PerguntaFechada>
+            <PerguntaFechada data-identifier="flashcard">
                 <p>Pergunta {index + 1}</p>
-                <img onClick={() => setCard("aberto")} src={setaPlay} alt={setaPlay}></img>
+                <img data-identifier="flashcard-show-btn" onClick={() => setCard("aberto")} src={setaPlay} alt={setaPlay}></img>
             </PerguntaFechada>
         )
     } else if (card === "aberto") {
         return (
-            <PerguntaAberta>
+            <PerguntaAberta data-identifier="flashcard-question">
                 {deck.pergunta}
-                <img onClick={() => setCard("de resposta")} src={setaVirar} alt={setaVirar}></img>
+                <img data-identifier="flashcard-turn-btn" onClick={() => setCard("de resposta")} src={setaVirar} alt={setaVirar}></img>
             </PerguntaAberta>
         )
     } else if (card === "de resposta") {
         return (
-            <PerguntaAberta>
+            <PerguntaAberta data-identifier="flashcard-answer">
                 {deck.resposta}
                 <ContainerDosBotoes
                     setCard={setCard}
@@ -40,9 +40,9 @@ export default function Flashcard(props) {
         )
     } else if (card === "respondido") {
         return (
-            <PerguntaRespondida cor={infoDaResposta.cor}>
+            <PerguntaRespondida data-identifier="flashcard-index-item" cor={infoDaResposta.cor}>
                 <p>Pergunta {index + 1}</p>
-                <img src={infoDaResposta.icone} alt={infoDaResposta.icone}></img>
+                <img data-identifier="flashcard-status" src={infoDaResposta.icone} alt={infoDaResposta.icone}></img>
             </PerguntaRespondida>
         )
     }

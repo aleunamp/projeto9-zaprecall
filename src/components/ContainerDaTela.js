@@ -17,7 +17,7 @@ export default function ContainerDaTela(props) {
             <>
                 <ScreenContainer tela={tela}>
                     <ContainerDoLogo tela={tela} />
-                    <BotaoDeIniciar onClick={() => setTela("telaDeFlashcards")}>Iniciar Recall!</BotaoDeIniciar>
+                    <BotaoDeIniciar data-identifier="start-btn" onClick={() => setTela("telaDeFlashcards")}>Iniciar Recall!</BotaoDeIniciar>
                 </ScreenContainer>
             </>
         );
