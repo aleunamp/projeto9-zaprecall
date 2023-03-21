@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export default function ContainerDosConcluidos(props) {
-    const { deck, contadorRespondidas } = props
-    const qntdDePerguntas = deck.length;
+export default function CompletedContainer(props) {
+    const { deck, counter } = props
+    const length = deck.length;
 
     return (
         <FooterConcluidos data-identifier="flashcard-counter">
-            {contadorRespondidas}/{qntdDePerguntas} CONCLUÍDOS
+            {counter}/{length} CONCLUÍDOS
         </FooterConcluidos>
     )
 }

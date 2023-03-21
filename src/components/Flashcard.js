@@ -1,16 +1,13 @@
 import styled from "styled-components";
-
 import React from "react";
-
 import setaPlay from "../assets/img/seta_play.png";
 import setaVirar from "../assets/img/seta_virar.png";
-
-import ContainerDosBotoes from "./ContainerDosBotoes";
+import Buttons from "./Buttons";
 
 export default function Flashcard(props) {
-    const { index, deck, setContadorRespondidas, contadorRespondidas } = props;
+    const { index, deck, setCounter, counter } = props;
     const [card, setCard] = React.useState("fechado");
-    const [infoDaResposta, setInfoDaResposta] = React.useState({});
+    const [answer, setAnswer] = React.useState({});
 
     if (card === "fechado") {
         return (
@@ -30,19 +27,19 @@ export default function Flashcard(props) {
         return (
             <PerguntaAberta data-identifier="flashcard-answer">
                 {deck.resposta}
-                <ContainerDosBotoes
+                <Buttons
                     setCard={setCard}
-                    setInfoDaResposta={setInfoDaResposta}
-                    setContadorRespondidas={setContadorRespondidas}
-                    contadorRespondidas={contadorRespondidas}
+                    setAnswer={setAnswer}
+                    setCounter={setCounter}
+                    counter={counter}
                 />
             </PerguntaAberta>
         )
     } else if (card === "respondido") {
         return (
-            <PerguntaRespondida data-identifier="flashcard-index-item" cor={infoDaResposta.cor}>
+            <PerguntaRespondida data-identifier="flashcard-index-item" color={answer.color}>
                 <p>Pergunta {index + 1}</p>
-                <img data-identifier="flashcard-status" src={infoDaResposta.icone} alt={infoDaResposta.icone}></img>
+                <img data-identifier="flashcard-status" src={answer.icone} alt={answer.icone}></img>
             </PerguntaRespondida>
         )
     }
@@ -120,7 +117,7 @@ const PerguntaRespondida = styled.div`
         font-size: 16px;
         line-height: 19px;
         text-decoration: line-through;
-        color: ${props => props.cor};
+        color: ${props => props.color};
         cursor: pointer;
     }
 `;
